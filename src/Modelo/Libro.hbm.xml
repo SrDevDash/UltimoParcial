@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/12/2020 04:58:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Libro" table="libro" catalog="biblioteca" optimistic-lock="version">
+        <id name="codLib" type="java.lang.Integer">
+            <column name="Cod_lib" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="200" not-null="true" />
+        </property>
+        <property name="ejemplar" type="int">
+            <column name="Ejemplar" not-null="true" />
+        </property>
+        <property name="categoria" type="string">
+            <column name="Categoria" length="200" not-null="true" />
+        </property>
+        <property name="coleccion" type="string">
+            <column name="Coleccion" length="2500" not-null="true" />
+        </property>
+        <set name="prestamos" table="prestamo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cod_lib" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Prestamo" />
+        </set>
+    </class>
+</hibernate-mapping>

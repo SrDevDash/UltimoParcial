@@ -46,5 +46,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/biblioteca?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">aviloria</property>
     <property name="hibernate.connection.password">12345678</property>
+    <mapping resource="Modelo/Libro.hbm.xml"/>
+    <mapping resource="Modelo/Prestamo.hbm.xml"/>
+    <mapping resource="Modelo/Usuario.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
